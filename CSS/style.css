@@ -1,0 +1,41 @@
+main {
+  padding: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: white;
+  text-align: center;
+  border-width: medium;
+  border-style: solid;
+  border-color: #5bd9c2;
+  margin: 20%;
+  margin-right: 5%;
+  margin-left: 5%;
+  box-shadow: 5px 5px 2px gray;
+}
+
+h1 {
+  color: #82d9d0;
+}
+
+#paragraph-result {
+  margin-top: 40px;
+}
+
+input {
+  border-radius: 10px;
+  margin-top: 5px;
+  width: 100px;
+  text-align: center;
+  border-color: #5bd9c2;
+}
+
+body {
+  background-image: url(backGraud.jpeg);
+}
+
+button {
+  border-radius: 10px;
+  border-color: #5bd9c2;
+  text-align: center;
+  background-color: #5bd9c2;
+  color: white;
+}
