@@ -1,14 +1,18 @@
+body {
+  background-image: url(./assets/backGroud.jpeg);
+  padding: 20px;
+}
+
 main {
-  padding: 10px;
+  width: 100%;
+  max-width: 588px;
   font-family: Arial, Helvetica, sans-serif;
   background-color: white;
   text-align: center;
   border-width: medium;
   border-style: solid;
   border-color: #5bd9c2;
-  margin: 20%;
-  margin-right: 5%;
-  margin-left: 5%;
+  margin: 20% auto;
   box-shadow: 5px 5px 2px gray;
 }
 
@@ -26,10 +30,6 @@ input {
   width: 100px;
   text-align: center;
   border-color: #5bd9c2;
-}
-
-body {
-  background-image: url(backGraud.jpeg);
 }
 
 button {
