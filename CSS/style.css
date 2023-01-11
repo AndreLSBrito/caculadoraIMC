@@ -8,8 +8,6 @@
 body {
   background-image: url(./assets/backGroud.jpeg);
   padding: 20px;
-
-  height: 100vh;
 }
 
 main {
@@ -22,7 +20,7 @@ main {
   border-width: medium;
   border-style: solid;
   border-color: #5bd9c2;
-  margin: 200px auto;
+  margin: 150px auto 40px;
   box-shadow: 5px 5px 2px gray;
 }
 
@@ -54,4 +52,14 @@ button {
   text-align: justify;
   background-color: rgba(240, 240, 240, 1);
   margin-top: 20px;
+}
+
+footer {
+  padding: 26px;
+  text-align: center;
+}
+
+footer a {
+  color: #5bd9c2;
+  text-decoration: none;
 }
