@@ -67,8 +67,8 @@ function handleButtonLimpar() {
   const resetWeight = (document.querySelector('#input-weight').value = '');
   const resetHight = (document.querySelector('#input-hight').value = '');
   let resetImc = document.querySelector('#paragraph-result');
-  resetImc.remove();
+  resetImc.textContent = '';
   let resetImcRange = document.querySelector('#paragraph-result-range');
-  resetImcRange.remove();
+  resetImcRange.textContent = '';
 }
 start();
