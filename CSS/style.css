@@ -49,3 +49,9 @@ button {
   background-color: #5bd9c2;
   color: white;
 }
+
+#warning {
+  text-align: justify;
+  background-color: rgba(240, 240, 240, 1);
+  margin-top: 20px;
+}
