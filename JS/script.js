@@ -1,64 +1,74 @@
 function start() {
-  var buttonCalculateImc = document.querySelector('#button-calculate-imc');
+  const buttonCalculateImc = document.querySelector('#button-calculate-imc');
   buttonCalculateImc.addEventListener('click', handleButtonClick);
 
-  var buttonResetImc = document.querySelector('#button-reset-imc');
+  const buttonResetImc = document.querySelector('#button-reset-imc');
   buttonResetImc.addEventListener('click', handleButtonLimpar);
 }
 
+// calculate IMC value
 function calculateImc(weight, hight) {
   return weight / (hight * hight);
 }
 
+// Calculate IMC Range
 function calculateImcRange(imc) {
-  var messageRange;
-  if (imc < 16) {
-    messageRange = 'Inválido';
-  } else if (imc >= 16 && imc < 18.5) {
-    messageRange = 'Muito abaixo do Peso';
+  let messageRange;
+  if (imc < 18.5) {
+    messageRange = 'Abaixo do Peso';
   } else if (imc >= 18.5 && imc < 25) {
     messageRange = 'Peso Normal';
   } else if (imc >= 25 && imc < 30) {
-    messageRange = 'Acima do peso';
+    messageRange = 'Sobrepeso';
   } else if (imc >= 30 && imc < 35) {
     messageRange = 'Obesidade Grau I';
   } else if (imc >= 35 && imc < 40) {
     messageRange = 'Obesidade Grau II';
-  } else if (imc < 40) {
-    messageRange = 'Obesidade Grau II';
   } else {
-    messageRange = 'Inválido';
+    messageRange = 'Obesidade Grau III (Obesidade mórbida)';
   }
 
   return messageRange;
 }
-
+// function when push the button calculate
 function handleButtonClick() {
-  var inputWeight = document.querySelector('#input-weight');
-  var inputHight = document.querySelector('#input-hight');
-  var weight = Number(inputWeight.value);
-  var hight = Number(inputHight.value);
-  var imcResult = document.querySelector('#imc-result');
-  var imcResultRange = document.querySelector('#imc-result-range');
+  // search the values inputed on the DOM
+  const inputWeight = document.querySelector('#input-weight');
+  const inputHight = document.querySelector('#input-hight');
+  const weight = Number(inputWeight.value);
+  const hight = Number(inputHight.value);
 
-  var imc = calculateImc(weight, hight).toFixed(2).replace('.', ',');
-  imcResult.textContent = imc;
-  imcResultRange.textContent = calculateImcRange(
-    calculateImc(weight, hight).toFixed(2)
+  // calculate the IMC and the range from the result
+  const imc = calculateImc(weight, hight).toFixed(2).replace('.', ',');
+  const imcRange = calculateImcRange(calculateImc(weight, hight).toFixed(2));
+
+  // Add at the DOM the result of IMC when the user clicks calculate
+  const dynamicImcResult = document.querySelector('#paragraph-result');
+  dynamicImcResult.innerHTML = '';
+  const boldImc = document.createElement('STRONG');
+  boldImc.textContent = imc;
+  dynamicImcResult.textContent = 'O IMC desses dados é ';
+  dynamicImcResult.appendChild(boldImc);
+
+  // Add at the DOM the result of rannge from IMC when the user clicks calculate
+  const dynamicImcRangeResult = document.querySelector(
+    '#paragraph-result-range'
   );
-
-  var dynamicResult = document.querySelector('#test');
-  dynamicResult.innerHTML = '';
-  var boldImc = document
-    .createElement('b')
-    .appendChild(document.createTextNode('aaaaa'));
-  //boldImc.innerHTML = '';
-  dynamicResult.textContent = 'O IMC desses dados é ';
-  dynamicResult.appendChild(boldImc); //.appendChild(boldImc);
+  dynamicImcRangeResult.innerHTML = '';
+  const boldImcRange = document.createElement('STRONG');
+  boldImcRange.textContent = imcRange;
+  dynamicImcRangeResult.textContent =
+    'Este valor considera que você está na faixa ';
+  dynamicImcRangeResult.appendChild(boldImcRange);
 }
 
+// function when push the button reset
 function handleButtonLimpar() {
-  var resetWeight = (document.querySelector('#input-weight').value = '');
-  var resetHight = (document.querySelector('#input-hight').value = '');
+  const resetWeight = (document.querySelector('#input-weight').value = '');
+  const resetHight = (document.querySelector('#input-hight').value = '');
+  let resetImc = document.querySelector('#paragraph-result');
+  resetImc.remove();
+  let resetImcRange = document.querySelector('#paragraph-result-range');
+  resetImcRange.remove();
 }
 start();
