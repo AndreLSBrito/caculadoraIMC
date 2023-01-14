@@ -34,7 +34,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 O projeto é uma aplicação para calcular o Indice de Massa Corporal (IMC), com base nos valores informados pelo usuario. O mesmo é capaz de validar as informações inseridas e apresentar um modal de advertência para o usuário quando os valores não forem válidos. Além de apresentar os resultados de forma dinâmina na página.
 
-- [Faça o teste](https://github.io/Tiotedd/calculadoraIMC)
+- [Faça o teste](https://tiotedd.github.io/caculadoraIMC/)
 
 ## :spiral_notepad: ToDo
 
