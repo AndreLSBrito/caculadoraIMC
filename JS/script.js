@@ -38,28 +38,38 @@ function handleButtonClick() {
   const weight = Number(inputWeight.value);
   const hight = Number(inputHight.value);
 
-  // calculate the IMC and the range from the result
-  const imc = calculateImc(weight, hight).toFixed(2).replace('.', ',');
-  const imcRange = calculateImcRange(calculateImc(weight, hight).toFixed(2));
+  if (weight == 0 || hight == 0 || weight == null || hight == null) {
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: 'Sinto muito, não foi possível calcular seu IMC!',
+      confirmButtonText: 'Tentar novamente',
+      confirmButtonColor: '#F27474',
+    });
+  } else {
+    // calculate the IMC and the range from the result
+    const imc = calculateImc(weight, hight).toFixed(2).replace('.', ',');
+    const imcRange = calculateImcRange(calculateImc(weight, hight).toFixed(2));
 
-  // Add at the DOM the result of IMC when the user clicks calculate
-  const dynamicImcResult = document.querySelector('#paragraph-result');
-  dynamicImcResult.innerHTML = '';
-  const boldImc = document.createElement('STRONG');
-  boldImc.textContent = imc;
-  dynamicImcResult.textContent = 'O IMC desses dados é ';
-  dynamicImcResult.appendChild(boldImc);
+    // Add at the DOM the result of IMC when the user clicks calculate
+    const dynamicImcResult = document.querySelector('#paragraph-result');
+    dynamicImcResult.innerHTML = '';
+    const boldImc = document.createElement('STRONG');
+    boldImc.textContent = imc;
+    dynamicImcResult.textContent = 'O IMC desses dados é ';
+    dynamicImcResult.appendChild(boldImc);
 
-  // Add at the DOM the result of rannge from IMC when the user clicks calculate
-  const dynamicImcRangeResult = document.querySelector(
-    '#paragraph-result-range'
-  );
-  dynamicImcRangeResult.innerHTML = '';
-  const boldImcRange = document.createElement('STRONG');
-  boldImcRange.textContent = imcRange;
-  dynamicImcRangeResult.textContent =
-    'Este valor considera que você está na faixa ';
-  dynamicImcRangeResult.appendChild(boldImcRange);
+    // Add at the DOM the result of rannge from IMC when the user clicks calculate
+    const dynamicImcRangeResult = document.querySelector(
+      '#paragraph-result-range'
+    );
+    dynamicImcRangeResult.innerHTML = '';
+    const boldImcRange = document.createElement('STRONG');
+    boldImcRange.textContent = imcRange;
+    dynamicImcRangeResult.textContent =
+      'Este valor considera que você está na faixa ';
+    dynamicImcRangeResult.appendChild(boldImcRange);
+  }
 }
 
 // function when push the button reset
